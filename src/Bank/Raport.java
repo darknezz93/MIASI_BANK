@@ -6,7 +6,7 @@ import java.util.List;
 public class Raport {
 
 
-    private List<RachunekBankowy> pobierzRachunkiSaldoWiekszeRowne(Bank bank, double saldo) {
+    public List<RachunekBankowy> pobierzRachunkiSaldoWiekszeRowne(Bank bank, double saldo) {
         List<RachunekBankowy> rachunki = bank.getRachunkiBankowe();
         List<RachunekBankowy> rachunkiWynikowe = new ArrayList<RachunekBankowy>();
 
@@ -18,7 +18,7 @@ public class Raport {
         return rachunkiWynikowe;
     }
 
-    private List<RachunekBankowy> pobierzRachunkiSaldoMniejsze(Bank bank, double saldo) {
+    public List<RachunekBankowy> pobierzRachunkiSaldoMniejsze(Bank bank, double saldo) {
         List<RachunekBankowy> rachunki = bank.getRachunkiBankowe();
         List<RachunekBankowy> rachunkiWynikowe = new ArrayList<RachunekBankowy>();
 
@@ -31,7 +31,7 @@ public class Raport {
     }
 
 
-    private RachunekBankowy pobierzRachunekONajwiekszymSaldzie(Bank bank) {
+    public RachunekBankowy pobierzRachunekONajwiekszymSaldzie(Bank bank) {
         List<RachunekBankowy> rachunki = bank.getRachunkiBankowe();
 
 
