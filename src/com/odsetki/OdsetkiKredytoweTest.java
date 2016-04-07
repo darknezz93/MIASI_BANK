@@ -12,7 +12,7 @@ public class OdsetkiKredytoweTest {
 
         OdsetkiKredytowe odsetkiKredytowe = new OdsetkiKredytowe(20);
         double result = odsetkiKredytowe.naliczOdsetki(100.0);
-        assertEquals(result, 80.0,  0.001d);
+        assertEquals(result, 120.0,  0.001d);
     }
 
 

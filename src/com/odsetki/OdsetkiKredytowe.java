@@ -12,7 +12,7 @@ public class OdsetkiKredytowe implements Odsetki {
 	
 	@Override
 	public double naliczOdsetki(Double kwota) {
-		return (kwota - kwota*oprocentowanie/100);
+		return (kwota + kwota*oprocentowanie/100);
 	}
 	
 	

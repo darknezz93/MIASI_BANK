@@ -10,7 +10,12 @@ public class Kredyt {
 
 	private RachunekBankowy rachunek;
 	private OdsetkiKredytowe odsetki;
-	private double kwota;
+
+    public double getKwota() {
+        return kwota;
+    }
+
+    private double kwota;
 
 	public Kredyt(RachunekBankowy rachunek, double kwota, OdsetkiKredytowe odsetki){
 		this.rachunek = rachunek;
@@ -28,6 +33,8 @@ public class Kredyt {
 	}
 	
 	public boolean splacKredyt(double kwota){
+        System.out.println(kwotaDoSplacenia());
+        System.out.println(kwota);
 		if(kwota==kwotaDoSplacenia()){
 			OperacjaBankowaWyplata operacja = new OperacjaBankowaWyplata(rachunek);
 			return operacja.wyplac(kwota);
