@@ -24,7 +24,8 @@ public class BankTest {
     @org.junit.Test
     public void testDodajDoHistoriiBanku() throws Exception {
         RachunekBankowy rachunekBankowy = bank.zalozKonto();
-        OperacjaBankowaWplata operacjaBankowaWplata = new OperacjaBankowaWplata(rachunekBankowy);
+        int kwota = 10;
+        OperacjaBankowaWplata operacjaBankowaWplata = new OperacjaBankowaWplata(rachunekBankowy, kwota);
         bank.dodajDoHistoriiBanku(operacjaBankowaWplata);
         boolean res = bank.getHistoria().czyZawiera(operacjaBankowaWplata);
         assertTrue(res);

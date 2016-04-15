@@ -24,7 +24,7 @@ public class Kredyt {
 	}
 	
 	public boolean wezKredyt(){
-		OperacjaBankowaWplata operacja = new OperacjaBankowaWplata(rachunek);
+		OperacjaBankowaWplata operacja = new OperacjaBankowaWplata(rachunek, kwota);
 		return operacja.wplac(kwota);
 	}
 	
@@ -36,7 +36,7 @@ public class Kredyt {
         System.out.println(kwotaDoSplacenia());
         System.out.println(kwota);
 		if(kwota==kwotaDoSplacenia()){
-			OperacjaBankowaWyplata operacja = new OperacjaBankowaWyplata(rachunek);
+			OperacjaBankowaWyplata operacja = new OperacjaBankowaWyplata(rachunek, kwota);
 			return operacja.wyplac(kwota);
 		}
 		else{

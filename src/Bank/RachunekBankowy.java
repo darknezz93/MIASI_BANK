@@ -18,8 +18,9 @@ public class RachunekBankowy {
 		saldo = 0;
 		historia = new Historia();
 	}
+
 	
-	public boolean wyplata(double kwota) {
+	/*public boolean wyplata(double kwota) {
 		if(kwota<=0){
 			return false;
 		}
@@ -30,15 +31,15 @@ public class RachunekBankowy {
 		} else {
 			return false;
 		}
-	}
+	} */
 
-	public boolean wplata(double kwota) {
+	/*public boolean wplata(double kwota) {
 		if (kwota > 0) {
 			this.saldo += kwota;
 			return true;
 		}
 		return false;
-	}
+	} */
 
 	public Debet getDebet() {
 		return debet;
@@ -63,7 +64,6 @@ public class RachunekBankowy {
 	public void dodajDoHistorii(OperacjaBankowa operacjaBankowa){
 		historia.dodajElement(operacjaBankowa);
 	}
-	
-	
+
 
 }
