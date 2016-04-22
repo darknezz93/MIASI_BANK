@@ -11,6 +11,7 @@ public interface IRachunekBankowy {
     double getSaldo();
     void setSaldo(double saldo);
     void dodajDoHistorii(OperacjaBankowa operacjaBankowa);
+    long getNumerKonta();
     boolean haveDebet();
     IRachunekBankowy getChild();
 }

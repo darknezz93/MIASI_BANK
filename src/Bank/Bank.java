@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import operacjaBankowa.OperacjaBankowa;
+import rachunekBankowy.DebetowyRachunekBankowy;
+import rachunekBankowy.IRachunekBankowy;
 import rachunekBankowy.RachunekBankowy;
 
 public class Bank {
 
     private String nazwaBanku;
-    private List<RachunekBankowy> rachunkiBankowe = new ArrayList<RachunekBankowy>();
+    private List<IRachunekBankowy> rachunkiBankowe = new ArrayList<IRachunekBankowy>();
     private static Historia historia = new Historia();
 
     public Historia getHistoria() {
@@ -25,7 +27,7 @@ public class Bank {
         historia.dodajElement(operacja);
     }
 
-    public List<RachunekBankowy> getRachunkiBankowe() {
+    public List<IRachunekBankowy> getRachunkiBankowe() {
         return rachunkiBankowe;
     }
 
@@ -43,13 +45,33 @@ public class Bank {
     private long getUniqueAccountNumber() {
         long max = 0;
         if (rachunkiBankowe.size() > 0) {
-            max = rachunkiBankowe.get(0).numerRachunku;
+            max = rachunkiBankowe.get(0).getNumerKonta();
         }
         for (int i = 1; i < rachunkiBankowe.size(); i++) {
-            if (rachunkiBankowe.get(i).numerRachunku > max) {
-                max = rachunkiBankowe.get(i).numerRachunku;
+            if (rachunkiBankowe.get(i).getNumerKonta() > max) {
+                max = rachunkiBankowe.get(i).getNumerKonta();
             }
         }
         return max + 1;
+    }
+
+    public boolean ustawDebetDlaKonta(IRachunekBankowy konto, int maksDebet) {
+        int i = rachunkiBankowe.indexOf(konto);
+        if (i >= 0 && rachunkiBankowe.remove(konto)) {
+            rachunkiBankowe.add(i, new DebetowyRachunekBankowy(konto, new Debet(maksDebet)));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean usuńDebetZKonta(DebetowyRachunekBankowy konto) {
+        int i = rachunkiBankowe.indexOf(konto);
+        IRachunekBankowy opakowane = konto.getChild();
+        if (i >= 0 && konto.getSaldoDebetu() == 0d && opakowane != null) {
+            rachunkiBankowe.remove(konto);
+            rachunkiBankowe.add(i, opakowane);
+            return true;
+        }
+        return false;
     }
 }

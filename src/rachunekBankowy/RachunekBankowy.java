@@ -68,6 +68,11 @@ public class RachunekBankowy implements IRachunekBankowy{
 	}
 
 	@Override
+	public long getNumerKonta() {
+		return numerRachunku;
+	}
+
+	@Override
 	public boolean haveDebet() {
 		return false;
 	}

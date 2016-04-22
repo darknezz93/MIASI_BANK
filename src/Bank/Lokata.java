@@ -40,7 +40,10 @@ public class Lokata extends RachunekBankowy {
 			return false;
 		}
 	}
-	
-	
-	
+
+
+	@Override
+	public long getNumerKonta() {
+		return super.getNumerKonta();
+	}
 }

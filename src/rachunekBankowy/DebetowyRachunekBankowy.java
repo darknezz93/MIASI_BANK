@@ -17,7 +17,6 @@ public class DebetowyRachunekBankowy implements IRachunekBankowy {
         this.debet = debet;
     }
 
-
     @Override
     public boolean wplata(double kwota) {
         if (kwota <= 0d) {
@@ -79,6 +78,15 @@ public class DebetowyRachunekBankowy implements IRachunekBankowy {
     @Override
     public void dodajDoHistorii(OperacjaBankowa operacjaBankowa) {
         opakowanyRachunekBankowy.dodajDoHistorii(operacjaBankowa);
+    }
+
+    @Override
+    public long getNumerKonta() {
+        return opakowanyRachunekBankowy.getNumerKonta();
+    }
+
+    public double getSaldoDebetu(){
+        return debet.getSaldoDebetu();
     }
 
     @Override

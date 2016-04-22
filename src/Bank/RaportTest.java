@@ -2,6 +2,7 @@ package Bank;
 
 import org.junit.Test;
 import org.mockito.Mockito;
+import rachunekBankowy.IRachunekBankowy;
 import rachunekBankowy.RachunekBankowy;
 
 import java.util.ArrayList;
@@ -17,7 +18,7 @@ import static org.mockito.Mockito.when;
 public class RaportTest {
 
     private final Bank mockedBank;
-    private final List<RachunekBankowy> defaultList;
+    private final List<IRachunekBankowy> defaultList;
 
     public RaportTest(){
         Bank test = Mockito.mock(Bank.class);
@@ -26,8 +27,8 @@ public class RaportTest {
         this.mockedBank = test;
     }
 
-    private List<RachunekBankowy> getDefaultList() {
-        List<RachunekBankowy> result = new ArrayList<>();
+    private List<IRachunekBankowy> getDefaultList() {
+        List<IRachunekBankowy> result = new ArrayList<>();
         for (int i = 1000; i < 100000; i++) {
             RachunekBankowy rachunekBankowy = new RachunekBankowy(i);
             rachunekBankowy.setSaldo(100+i);
@@ -41,7 +42,7 @@ public class RaportTest {
 
     @Test
     public void testPobierzRachunkiSaldoWiekszeRowne() throws Exception {
-        RachunekBankowy rachunekBankowy = (new Raport()).pobierzRachunekONajwiekszymSaldzie(mockedBank);
+        IRachunekBankowy rachunekBankowy = (new Raport()).pobierzRachunekONajwiekszymSaldzie(mockedBank);
         assertEquals(rachunekBankowy, defaultList.get(defaultList.size()-1));
     }
 

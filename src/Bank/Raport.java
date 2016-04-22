@@ -1,5 +1,6 @@
 package Bank;
 
+import rachunekBankowy.IRachunekBankowy;
 import rachunekBankowy.RachunekBankowy;
 
 import java.util.ArrayList;
@@ -8,9 +9,9 @@ import java.util.List;
 public class Raport {
 
 
-    public List<RachunekBankowy> pobierzRachunkiSaldoWiekszeRowne(Bank bank, double saldo) {
-        List<RachunekBankowy> rachunki = bank.getRachunkiBankowe();
-        List<RachunekBankowy> rachunkiWynikowe = new ArrayList<RachunekBankowy>();
+    public List<IRachunekBankowy> pobierzRachunkiSaldoWiekszeRowne(Bank bank, double saldo) {
+        List<IRachunekBankowy> rachunki = bank.getRachunkiBankowe();
+        List<IRachunekBankowy> rachunkiWynikowe = new ArrayList<>();
 
         for (int i = 0; i < rachunki.size(); i++) {
             if (rachunki.get(i).getSaldo() >= saldo) {
@@ -20,9 +21,9 @@ public class Raport {
         return rachunkiWynikowe;
     }
 
-    public List<RachunekBankowy> pobierzRachunkiSaldoMniejsze(Bank bank, double saldo) {
-        List<RachunekBankowy> rachunki = bank.getRachunkiBankowe();
-        List<RachunekBankowy> rachunkiWynikowe = new ArrayList<RachunekBankowy>();
+    public List<IRachunekBankowy> pobierzRachunkiSaldoMniejsze(Bank bank, double saldo) {
+        List<IRachunekBankowy> rachunki = bank.getRachunkiBankowe();
+        List<IRachunekBankowy> rachunkiWynikowe = new ArrayList<>();
 
         for (int i = 0; i < rachunki.size(); i++) {
             if (rachunki.get(i).getSaldo() < saldo) {
@@ -33,12 +34,12 @@ public class Raport {
     }
 
 
-    public RachunekBankowy pobierzRachunekONajwiekszymSaldzie(Bank bank) {
-        List<RachunekBankowy> rachunki = bank.getRachunkiBankowe();
+    public IRachunekBankowy pobierzRachunekONajwiekszymSaldzie(Bank bank) {
+        List<IRachunekBankowy> rachunki = bank.getRachunkiBankowe();
 
 
         if (rachunki.size() > 0) {
-            RachunekBankowy najwiekszyRachunek = rachunki.get(0);
+            IRachunekBankowy najwiekszyRachunek = rachunki.get(0);
 
             for (int i = 1; i < rachunki.size(); i++) {
                 if (rachunki.get(i).getSaldo() > najwiekszyRachunek.getSaldo()) {
