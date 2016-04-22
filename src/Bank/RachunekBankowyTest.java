@@ -1,9 +1,9 @@
 package Bank;
 
-import operacjaBankowa.OperacjaBankowa;
 import operacjaBankowa.OperacjaBankowaWplata;
 import operacjaBankowa.OperacjaBankowaWyplata;
 import org.junit.Test;
+import rachunekBankowy.RachunekBankowy;
 
 import static org.junit.Assert.*;
 

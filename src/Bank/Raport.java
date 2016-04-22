@@ -1,5 +1,7 @@
 package Bank;
 
+import rachunekBankowy.RachunekBankowy;
+
 import java.util.ArrayList;
 import java.util.List;
 

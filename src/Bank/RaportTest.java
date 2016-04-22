@@ -2,6 +2,7 @@ package Bank;
 
 import org.junit.Test;
 import org.mockito.Mockito;
+import rachunekBankowy.RachunekBankowy;
 
 import java.util.ArrayList;
 import java.util.List;

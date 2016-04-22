@@ -1,7 +1,6 @@
 package operacjaBankowa;
 
-import Bank.Historia;
-import Bank.RachunekBankowy;
+import rachunekBankowy.RachunekBankowy;
 
 public class OperacjaBankowaWplata extends OperacjaBankowa{
 
@@ -16,24 +15,11 @@ public class OperacjaBankowaWplata extends OperacjaBankowa{
 	
 	@Override
 	protected boolean operacja() {
-		boolean res = wplata(kwota);
-		if(res){
-			rachunekBankowy.dodajDoHistorii(this);
-		}
-		return res;
+		rachunekBankowy.dodajDoHistorii(this);
+		return wplata(kwota);
 	}
 
 	public boolean wplata(double kwota) {
-		if (kwota > 0) {
-			rachunekBankowy.setSaldo(rachunekBankowy.getSaldo() + kwota);
-			return true;
-		}
-		return false;
+		return rachunekBankowy.wplata(kwota);
 	}
-	
-	public boolean wplac(double kwota){
-		this.kwota = kwota;
-		return wykonajOperacje();
-	}
-
 }

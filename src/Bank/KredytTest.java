@@ -2,6 +2,7 @@ package Bank;
 
 import com.odsetki.OdsetkiKredytowe;
 import org.junit.Test;
+import rachunekBankowy.RachunekBankowy;
 
 import static org.junit.Assert.*;
 

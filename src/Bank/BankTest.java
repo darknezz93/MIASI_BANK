@@ -1,6 +1,7 @@
 package Bank;
 
 import operacjaBankowa.OperacjaBankowaWplata;
+import rachunekBankowy.RachunekBankowy;
 
 import static org.junit.Assert.*;
 

@@ -1,10 +1,12 @@
-package Bank;
+package rachunekBankowy;
 
 import java.util.Date;
 
+import Bank.Debet;
+import Bank.Historia;
 import operacjaBankowa.OperacjaBankowa;
 
-public class RachunekBankowy {
+public class RachunekBankowy implements IRachunekBankowy{
 	
 	public long numerRachunku;
 	private Date dataZalozenia;
@@ -20,7 +22,7 @@ public class RachunekBankowy {
 	}
 
 	
-	/*public boolean wyplata(double kwota) {
+	public boolean wyplata(double kwota) {
 		if(kwota<=0){
 			return false;
 		}
@@ -31,15 +33,15 @@ public class RachunekBankowy {
 		} else {
 			return false;
 		}
-	} */
+	}
 
-	/*public boolean wplata(double kwota) {
+	public boolean wplata(double kwota) {
 		if (kwota > 0) {
 			this.saldo += kwota;
 			return true;
 		}
 		return false;
-	} */
+	}
 
 	public Debet getDebet() {
 		return debet;
@@ -63,6 +65,16 @@ public class RachunekBankowy {
 
 	public void dodajDoHistorii(OperacjaBankowa operacjaBankowa){
 		historia.dodajElement(operacjaBankowa);
+	}
+
+	@Override
+	public boolean haveDebet() {
+		return false;
+	}
+
+	@Override
+	public IRachunekBankowy getChild() {
+		return null;
 	}
 
 

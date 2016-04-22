@@ -3,6 +3,7 @@ package Bank;
 import java.util.Date;
 
 import com.odsetki.OdsetkiLokata;
+import rachunekBankowy.RachunekBankowy;
 
 public class Lokata extends RachunekBankowy {
 	private Date dataRozwiazania;
