@@ -1,5 +1,6 @@
 package Bank;
 
+import com.odsetki.Odsetki;
 import operacjaBankowa.OperacjaBankowaWplata;
 import operacjaBankowa.OperacjaBankowaWyplata;
 
@@ -9,7 +10,7 @@ import rachunekBankowy.RachunekBankowy;
 public class Kredyt {
 
 	private RachunekBankowy rachunek;
-	private OdsetkiKredytowe odsetki;
+	private Odsetki odsetki;
 
     public double getKwota() {
         return kwota;
@@ -17,7 +18,7 @@ public class Kredyt {
 
     private double kwota;
 
-	public Kredyt(RachunekBankowy rachunek, double kwota, OdsetkiKredytowe odsetki){
+	public Kredyt(RachunekBankowy rachunek, double kwota, Odsetki odsetki){
 		this.rachunek = rachunek;
 		this.odsetki = odsetki;
 		this.kwota = kwota;

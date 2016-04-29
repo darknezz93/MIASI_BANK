@@ -2,7 +2,7 @@ package com.odsetki;
 
 import Bank.Historia;
 
-public class OdsetkiKredytowe implements Odsetki {
+public class OdsetkiKredytowe implements OdsetkiState {
 	
 	private double oprocentowanie;
 	
@@ -10,7 +10,11 @@ public class OdsetkiKredytowe implements Odsetki {
 		this.oprocentowanie = oprocentowanie;
 	}
 	
-	@Override
+	/*@Override
+	public double naliczOdsetki(Double kwota) {
+		return (kwota + kwota*oprocentowanie/100);
+	}*/
+
 	public double naliczOdsetki(Double kwota) {
 		return (kwota + kwota*oprocentowanie/100);
 	}

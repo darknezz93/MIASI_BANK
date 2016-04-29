@@ -2,6 +2,7 @@ package Bank;
 
 import java.util.Date;
 
+import com.odsetki.Odsetki;
 import com.odsetki.OdsetkiLokata;
 import rachunekBankowy.RachunekBankowy;
 
@@ -10,7 +11,7 @@ public class Lokata extends RachunekBankowy {
 	private boolean czyAktywna;
 	private OdsetkiLokata odsetkiLokata;
 
-	public Lokata(long uniqueAccountNumber, OdsetkiLokata odsetkiLokata, double saldo, Date datarozwiazania) {
+	public Lokata(long uniqueAccountNumber, Odsetki odsetki, double saldo, Date datarozwiazania) {
 		super(uniqueAccountNumber);
 		this.odsetkiLokata = odsetkiLokata;
 		this.dataRozwiazania = datarozwiazania;

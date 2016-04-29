@@ -1,5 +1,6 @@
 package Bank;
 
+import com.odsetki.Odsetki;
 import com.odsetki.OdsetkiKredytowe;
 import org.junit.Test;
 import rachunekBankowy.RachunekBankowy;
@@ -13,7 +14,10 @@ public class KredytTest{
     @Test
     public void wezKredytTest() {
         RachunekBankowy rachunek = new RachunekBankowy(356789563);
-        OdsetkiKredytowe odsetki = new OdsetkiKredytowe(10);
+        //OdsetkiKredytowe odset = new OdsetkiKredytowe(10);
+        Odsetki odsetki = new Odsetki();
+        odsetki.setState(new OdsetkiKredytowe(10));
+
         rachunek.setSaldo(100);
         Kredyt kredyt = new Kredyt(rachunek, 100, odsetki);
         kredyt.wezKredyt();
@@ -23,7 +27,9 @@ public class KredytTest{
     @Test
     public void splacKredytTest() {
         RachunekBankowy rachunek = new RachunekBankowy(356789563);
-        OdsetkiKredytowe odsetki = new OdsetkiKredytowe(10);
+        Odsetki odsetki = new Odsetki();
+        odsetki.setState(new OdsetkiKredytowe(10));
+
         rachunek.setSaldo(1000);
         Kredyt kredyt = new Kredyt(rachunek, 100, odsetki);
         kredyt.wezKredyt();
