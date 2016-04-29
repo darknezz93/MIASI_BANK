@@ -5,6 +5,8 @@ import java.util.Date;
 import Bank.Debet;
 import Bank.Historia;
 import operacjaBankowa.OperacjaBankowa;
+import raport.FullAccountReport;
+import raport.interfaces.IBankAccountReportVisitor;
 
 public class RachunekBankowy implements IRachunekBankowy{
 	
@@ -83,4 +85,15 @@ public class RachunekBankowy implements IRachunekBankowy{
 	}
 
 
+	@Override
+	public void accept(IBankAccountReportVisitor visitor) {
+		visitor.visitRachunekBankowy(this);
+	}
+
+	public String getFullAccountReport(){
+		FullAccountReport report = new FullAccountReport();
+		accept(report);
+		historia.acceptBankOperations(report);
+		return report.generateRerort();
+	}
 }

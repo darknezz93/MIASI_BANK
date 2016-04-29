@@ -1,6 +1,7 @@
 package operacjaBankowa;
 
 import rachunekBankowy.RachunekBankowy;
+import raport.interfaces.IBankOperationReportVisitor;
 
 public class OperacjaBankowaWplata extends OperacjaBankowa{
 
@@ -19,7 +20,17 @@ public class OperacjaBankowaWplata extends OperacjaBankowa{
 		return wplata(kwota);
 	}
 
+	@Override
+	public double getKwota() {
+		return kwota;
+	}
+
 	public boolean wplata(double kwota) {
 		return rachunekBankowy.wplata(kwota);
+	}
+
+	@Override
+	public void accept(IBankOperationReportVisitor visitor) {
+		visitor.visitOperacjaBankowaWplata(this);
 	}
 }

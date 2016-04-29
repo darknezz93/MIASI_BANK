@@ -7,6 +7,8 @@ import operacjaBankowa.OperacjaBankowa;
 import rachunekBankowy.DebetowyRachunekBankowy;
 import rachunekBankowy.IRachunekBankowy;
 import rachunekBankowy.RachunekBankowy;
+import raport.PayoffHigherThanReport;
+import raport.SaldoHigherThanReport;
 
 public class Bank {
 
@@ -73,5 +75,19 @@ public class Bank {
             return true;
         }
         return false;
+    }
+
+    public String getSaldoHigherThanReport(double valueToCompare) {
+        SaldoHigherThanReport report = new SaldoHigherThanReport(valueToCompare);
+        for (int i = 0; i < rachunkiBankowe.size(); i++) {
+            rachunkiBankowe.get(i).accept(report);
+        }
+        return report.generateReport();
+    }
+
+    public String getPayoffHigherThanReport(double valueToCompare) {
+        PayoffHigherThanReport report = new PayoffHigherThanReport(valueToCompare);
+        historia.acceptBankOperations(report);
+        return report.generateReport();
     }
 }

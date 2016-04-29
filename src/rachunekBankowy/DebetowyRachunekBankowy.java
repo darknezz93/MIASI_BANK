@@ -3,6 +3,7 @@ package rachunekBankowy;
 import Bank.Debet;
 import com.sun.istack.internal.NotNull;
 import operacjaBankowa.OperacjaBankowa;
+import raport.interfaces.IBankAccountReportVisitor;
 
 /**
  * Created by inf113149 on 2016-04-22.
@@ -97,5 +98,15 @@ public class DebetowyRachunekBankowy implements IRachunekBankowy {
     @Override
     public IRachunekBankowy getChild() {
         return opakowanyRachunekBankowy;
+    }
+
+    @Override
+    public String getFullAccountReport() {
+        return opakowanyRachunekBankowy.getFullAccountReport();
+    }
+
+    @Override
+    public void accept(IBankAccountReportVisitor visitor) {
+        visitor.visitDebetowyRachunekBankowy(this);
     }
 }

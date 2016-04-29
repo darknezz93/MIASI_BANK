@@ -1,9 +1,9 @@
 package operacjaBankowa;
 import Bank.Bank;
-import Bank.Historia;
+import raport.interfaces.IBankOperationReportable;
 
 
-public abstract class OperacjaBankowa {
+public abstract class OperacjaBankowa implements IBankOperationReportable{
 	
 	
 	public boolean wykonajOperacje() {
@@ -15,5 +15,7 @@ public abstract class OperacjaBankowa {
 	}
 
 	protected abstract boolean operacja();
+
+	public abstract double getKwota();
 	
 }

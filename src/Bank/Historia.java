@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import operacjaBankowa.OperacjaBankowa;
+import raport.interfaces.IBankOperationReportVisitor;
 
 public class Historia {
 	
@@ -14,5 +15,11 @@ public class Historia {
 
 	public boolean czyZawiera(OperacjaBankowa operacja){
 		return operacje.contains(operacja);
+	}
+
+	public void acceptBankOperations(IBankOperationReportVisitor visitor){
+		for(int i=0; i<operacje.size(); i++){
+			operacje.get(i).accept(visitor);
+		}
 	}
 }
