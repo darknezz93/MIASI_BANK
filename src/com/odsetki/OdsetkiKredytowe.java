@@ -16,6 +16,7 @@ public class OdsetkiKredytowe implements OdsetkiState {
 	}*/
 
 	public double naliczOdsetki(Double kwota) {
+        System.out.println("Odsetki kredytowe");
 		return (kwota + kwota*oprocentowanie/100);
 	}
 	

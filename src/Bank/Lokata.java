@@ -9,20 +9,23 @@ import rachunekBankowy.RachunekBankowy;
 public class Lokata extends RachunekBankowy {
 	private Date dataRozwiazania;
 	private boolean czyAktywna;
-	private OdsetkiLokata odsetkiLokata;
+	private Odsetki odsetki;
+    private double oprocentowanie;
 
-	public Lokata(long uniqueAccountNumber, Odsetki odsetki, double saldo, Date datarozwiazania) {
+	public Lokata(long uniqueAccountNumber, Odsetki odsetki, double saldo, Date datarozwiazania, double oprocentowanie) {
 		super(uniqueAccountNumber);
-		this.odsetkiLokata = odsetkiLokata;
+		this.odsetki= odsetki;
 		this.dataRozwiazania = datarozwiazania;
 		this.czyAktywna = true;
+        this.oprocentowanie = oprocentowanie;
 		this.setSaldo(saldo);
 	}
 
 	public boolean rozwiazLokate() {
 		Date currentDate = new Date(System.currentTimeMillis());
+        //odsetki.setState(new OdsetkiLokata(oprocentowanie));
 		if(this.czyAktywna && (this.dataRozwiazania.before(currentDate))) {
-			this.setSaldo(odsetkiLokata.naliczOdsetki(this.getSaldo()));
+			this.setSaldo(odsetki.naliczOdsetki(this.getSaldo()));
 			System.out.println("Lokata została rozwiązana pomyślnie.");
 			return true;
 		} else {

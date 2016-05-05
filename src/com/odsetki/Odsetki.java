@@ -4,6 +4,9 @@ public class Odsetki {
 
 	//double naliczOdsetki(Double kwota);
 
+
+    private double kwota;
+
 	private OdsetkiState state;
 
 	public OdsetkiState getState() {
@@ -15,11 +18,12 @@ public class Odsetki {
 	}
 
 	public double naliczOdsetki(Double kwota) {
-		if (state != null) {
-			return state.naliczOdsetki(kwota);
-		} else {
-			System.out.println("status unknown");
-		}
-		return 0;
+        double result = 0;
+		if(state != null) {
+            result = state.naliczOdsetki(kwota);
+        } else {
+            System.out.println("Unknown state");
+        }
+        return result;
 	}
 }

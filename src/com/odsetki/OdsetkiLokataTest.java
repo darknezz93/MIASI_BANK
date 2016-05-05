@@ -11,8 +11,9 @@ public class OdsetkiLokataTest {
     @Test
     public void naliczOdsetkiTest() {
 
-        OdsetkiLokata odsetkiLokata = new OdsetkiLokata(20);
-        double result = odsetkiLokata.naliczOdsetki(100.0);
+        Odsetki odsetki = new Odsetki();
+        odsetki.setState(new OdsetkiLokata(20));
+        double result = odsetki.naliczOdsetki(100.0);
         assertEquals(result, 120.0,  0.001d);
     }
 

@@ -13,6 +13,7 @@ public class OdsetkiLokata implements OdsetkiState {
 	}*/
 
 	public double naliczOdsetki(Double kwota) {
+        System.out.println("Odsetki lokata");
 		return (kwota + kwota*oprocentowanie/100);
 	}
 	

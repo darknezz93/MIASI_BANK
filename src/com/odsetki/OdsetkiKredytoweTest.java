@@ -10,11 +10,11 @@ public class OdsetkiKredytoweTest {
     @Test
     public void naliczOdsetkiTest() {
 
-        OdsetkiKredytowe odsetkiKredytowe = new OdsetkiKredytowe(20);
-        double result = odsetkiKredytowe.naliczOdsetki(100.0);
-        assertEquals(result, 120.0,  0.001d);
+        Odsetki odsetki = new Odsetki();
+        odsetki.setState(new OdsetkiKredytowe(20));
+        double result = odsetki.naliczOdsetki(100.0);
+        assertEquals(result, 120.0, 0.001d);
     }
-
 
 
 }
