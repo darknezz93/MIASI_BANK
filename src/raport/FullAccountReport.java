@@ -46,6 +46,11 @@ public class FullAccountReport implements IBankAccountReportVisitor, IBankOperat
         locals.add(operacja);
     }
 
+    @Override
+    public void visitOperacjaBankowaPrzelew(OperacjaBankowaPrzelew operacja) {
+        locals.add(operacja);
+    }
+
     public String generateRerort() {
         String res = "" + rachunekBankowy.getNumerKonta() + "\n" + rachunekBankowy.getSaldo() + "\n\n";
         for (int i = 0; i < locals.size(); i++) {

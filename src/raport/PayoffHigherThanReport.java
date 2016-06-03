@@ -1,9 +1,6 @@
 package raport;
 
-import operacjaBankowa.OperacjaBankowaKredyt;
-import operacjaBankowa.OperacjaBankowaLokata;
-import operacjaBankowa.OperacjaBankowaWplata;
-import operacjaBankowa.OperacjaBankowaWyplata;
+import operacjaBankowa.*;
 import raport.interfaces.IBankOperationReportVisitor;
 
 import java.util.ArrayList;
@@ -41,6 +38,11 @@ public class PayoffHigherThanReport implements IBankOperationReportVisitor {
         if (operacja.getKwota() > valueToCompare) {
             locals.add(operacja);
         }
+    }
+
+    @Override
+    public void visitOperacjaBankowaPrzelew(OperacjaBankowaPrzelew operacja) {
+
     }
 
     public String generateReport() {
